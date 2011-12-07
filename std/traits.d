@@ -3194,9 +3194,11 @@ template isAnyType(TList...)
 {
     bool isAnyType(T)(T val)
     {
-        foreach(TTest; TList)
-        if(isType!TTest(val))
-            return true;
+        foreach (TTest; TList)
+        {
+            if (isType!TTest(val))
+                return true;
+        }
 
         return false;
     }
@@ -3221,9 +3223,11 @@ template isAllTypes(TList...)
 {
     bool isAllTypes(T)(T val)
     {
-        foreach(TTest; TList)
-        if(!isType!TTest(val))
-            return false;
+        foreach (TTest; TList)
+        {
+            if (!isType!TTest(val))
+                return false;
+        }
 
         return true;
     }
