@@ -3148,11 +3148,11 @@ template isType(T)
 {
     bool isType(Ta)(Ta a)
     {
-        static if(is(Ta : T))
+        static if (is(Ta : T))
             return true;
-        else static if(!is(Ta : Object) || !is(T : Object))
+        else static if (!is(Ta : Object) || !is(T : Object))
             return false;
-        else static if(!__traits(compiles, cast(T)a))
+        else static if (!__traits(compiles, cast(T)a))
             return false;
         else
             return cast(T)a !is null;
